@@ -278,7 +278,7 @@ export class MembersService {
 
   private mapToDto(member: Member): MemberDto {
     return {
-      memberId: member.id.toString(),
+      memberId: member._id.toString(),
       name: member.name,
       age: member.age,
       height: member.height,

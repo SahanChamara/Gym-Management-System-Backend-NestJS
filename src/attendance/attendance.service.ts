@@ -224,7 +224,7 @@ export class AttendanceService {
 
   private mapToDto(attendance: Attendance, member: any): AttendanceDto {
     return {
-      attendanceId: attendance.id.toString(),
+      attendanceId: attendance._id.toString(),
       memberId: attendance.member.toString(),
       date: attendance.date.toISOString().split('T')[0],
       timeIn: attendance.timeIn.toISOString(),
