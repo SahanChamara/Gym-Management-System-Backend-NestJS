@@ -6,10 +6,17 @@ import { ConfigService } from '@nestjs/config';
 import { Logger } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 
-async function bootstrap() {
-  process.env.TZ = 'Asia/Colombo';
+// Load environment variables before anything else
+dotenv.config();
 
-  dotenv.config();
+async function bootstrap() {
+
+  console.log('ENV CHECK:', {
+    mongo: process.env.MONGODB_URI,
+    db: process.env.PG_DATABASE,
+  });
+
+  process.env.TZ = 'Asia/Colombo';
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Bootstrap');
 
@@ -23,8 +30,8 @@ async function bootstrap() {
 
   app.enableCors({
     origin: (origin, callback) => {
-      if(!origin)  return callback(null,true);
-      if(allowedOrigins.includes(origin)) return callback(null, true);
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
       callback(new Error('Not Allowed by CORS'));
     },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
