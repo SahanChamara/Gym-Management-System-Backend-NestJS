@@ -3,7 +3,7 @@
 set -e
 
 : "${PG_HOST:=postgres}"
-: "${PG_PORT:=5436}"
+: "${PG_PORT:=5432}"
 : "${PG_USERNAME:=postgres}"
 
 echo ">>> Waiting for Postgres at ${PG_HOST}:${PG_PORT}..."
