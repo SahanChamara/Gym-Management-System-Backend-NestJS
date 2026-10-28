@@ -18,7 +18,9 @@ async function bootstrap() {
     'http://localhost:3000',
     `http://192.168.1.3:3000`,// Local development.
     'https://rskfitness.technook.lk',
-    'https://www.rskfitness.technook.lk'
+    'https://www.rskfitness.technook.lk',
+    'https://rsk-fitness.vercel.app',
+    'https://rsk-fitness-git-main-sahanchamara456-8167s-projects.vercel.app'
   ];
 
   app.enableCors({
